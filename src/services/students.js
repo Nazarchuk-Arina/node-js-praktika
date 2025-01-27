@@ -44,3 +44,5 @@ export const updateStudent = async (studentId, payload, options = {}) => {
     isNew: Boolean(rawResult?.lastErrorObject?.upserted),
   };
 };
+
+console.log();
