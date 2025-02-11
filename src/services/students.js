@@ -30,16 +30,6 @@ export const getAllStudents = async ({
   if (filter.minAvgMark) {
     studentsQuery.where('avgMark').gte(filter.minAvgMark);
   }
-
-  // const studentsCount = await StudentsCollection.find()
-  //   .merge(studentsQuery)
-  //   .countDocuments();
-
-  // const students = await studentsQuery
-  //   .skip(skip)
-  //   .limit(limit)
-  //   .sort({ [sortBy]: sortOrder })
-  //   .exec();
   const [studentsCount, students] = await Promise.all([
     StudentsCollection.find().merge(studentsQuery).countDocuments(),
     studentsQuery
